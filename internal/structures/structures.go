@@ -24,11 +24,6 @@ type SyncSet struct {
 	lock  sync.RWMutex
 }
 
-type SyncMap struct {
-	data map[Item]Item
-	lock sync.RWMutex
-}
-
 func NewQueue() *CircularQueue {
 	return &CircularQueue{items: make([]Item, 0)}
 }
@@ -111,7 +106,3 @@ func (set *SyncSet) Contains(item Item) bool {
 	_, ok := set.items[item]
 	return ok
 }
-
-// func NewSyncMap() *SyncMap {
-
-// }
